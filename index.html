@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnidex - Ben 10</title>
+    
+    <!-- ÍCONE DA ABA DO NAVEGADOR (Favicon) apontando para o seu omni.png -->
+    <link rel="icon" type="image/png" href="img/omni.gif">
+
+    <!-- Importando o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chamando o seu arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col font-sans relative">
+    
+    <!-- Fundo Lava Lamp -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Cabeçalho com PLAYER DE MÚSICA e z-40 -->
+    <header class="p-4 border-b-2 neon-border glass-panel z-40 sticky top-0">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            <h1 class="text-5xl md:text-6xl font-ben10 neon-text uppercase tracking-widest flex items-center gap-3">
+                <img src="img/omni.gif" alt="Logo Omnitrix" class="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]" onerror="this.src='https://placehold.co/100x100/000000/22c55e?text=OMNI'">
+                Omnidex
+            </h1>
+            
+            <!-- OMNI-PLAYER (Controles de Música) -->
+            <div class="flex items-center gap-4 bg-black/60 border border-green-800 px-5 py-2 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.3)] backdrop-blur-md">
+                <div class="text-green-500 text-xl flex items-center gap-6 font-mono">
+                    <button id="play-btn" class="hover:text-white transition-colors drop-shadow-[0_0_5px_rgba(34,197,94,0.8)] transform hover:scale-110" title="Play/Pause">▶</button>
+                    <button id="next-btn" class="hover:text-white transition-colors drop-shadow-[0_0_5px_rgba(34,197,94,0.8)] transform hover:scale-110" title="Próxima Faixa">⏭</button>
+                </div>
+                <!-- Visor da faixa -->
+                <div class="hidden md:flex flex-col justify-center border-l border-green-800/50 pl-4">
+                    <span class="text-[9px] text-green-700 uppercase tracking-widest font-mono">Frequência Sonora</span>
+                    <span id="track-name" class="text-xs text-green-400 font-mono w-24 truncate">CLASSIC</span>
+                </div>
+            </div>
+
+            <!-- Barra de Pesquisa -->
+            <div class="relative w-full md:w-80">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-green-500 font-bold">
+                    [Q]
+                </div>
+                <input type="text" id="search-bar" 
+                    class="glass-panel border-2 border-green-600/50 text-white text-sm rounded-full focus:ring-2 focus:border-green-400 focus:outline-none block w-full pl-12 p-3 placeholder-green-600/70 font-mono transition-all uppercase" 
+                    placeholder="Pesquisar DNA...">
+            </div>
+        </div>
+    </header>
+
+    <!-- Grade de Aliens -->
+    <main class="flex-1 p-6 max-w-6xl mx-auto w-full relative z-10">
+        <div id="alien-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Cards injetados via JS -->
+        </div>
+        
+        <div id="no-results" class="hidden text-center mt-20 font-ben10 text-green-500 text-4xl animate-pulse">
+            AMOSTRA DE DNA NÃO RECONHECIDA!
+        </div>
+    </main>
+
+    <!-- Modal de Detalhes -->
+    <div id="alien-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center p-4">
+        <div class="glass-panel border-2 neon-border rounded-2xl p-6 w-full max-w-lg relative transform scale-100 transition-transform shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+            
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-green-500 hover:text-black text-2xl font-black bg-black rounded-full w-10 h-10 flex items-center justify-center border-2 border-green-500 hover:bg-green-500 transition-colors z-10 shadow-[0_0_10px_rgba(34,197,94,0.5)]">
+                &times;
+            </button>
+
+            <div id="modal-content" class="flex flex-col items-center text-center mt-4">
+                <!-- Conteúdo Modal -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Chamando o seu arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
